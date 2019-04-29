@@ -6,9 +6,24 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Label Text="Main Page" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+        <ListView x:Name="Songs">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Image}" WidthRequest="50" HeightRequest="50"/>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{Binding Artist}" FontSize="15" TextColor="Blue"/>
+                                <Label Text="{Binding Title}" FontSize="12" TextColor="Fuchsia"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>

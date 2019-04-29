@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ControlListView.Models"
+             xmlns:converters="clr-namespace:ControlListView.Converters"
+             x:Class="ControlListView.Views.NumberConverter">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NumberColorConverter x:Key="colorconverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="0, 30, 0, 0">
+            <Label Text="Converter ListView" FontSize="40" TextColor="Blue"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <ListView ItemsSource="{Binding Numbers}">
+                <ListView.BindingContext>
+                    <models:NumberList/>
+                </ListView.BindingContext>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label FontSize="20" Text="{Binding Value}" TextColor="{Binding Value, Converter={StaticResource colorconverter}}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
