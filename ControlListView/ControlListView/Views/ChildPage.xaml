@@ -1,12 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:ControlListView.Behaviors"
              x:Class="ControlListView.Views.ChildPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Solo numeros" />
+            <Entry HorizontalOptions="FillAndExpand">
+                <Entry.Behaviors>
+                    <behaviors:NumberEntry/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="Master Detail Page" FontSize="40" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
